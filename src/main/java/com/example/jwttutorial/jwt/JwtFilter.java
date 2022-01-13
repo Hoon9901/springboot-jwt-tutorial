@@ -33,10 +33,12 @@ public class JwtFilter extends GenericFilterBean {
         String jwt = resolveToken(httpServletRequest);
         String requestURI = httpServletRequest.getRequestURI();
 
+/*
         if(requestURI.contains("authenticate")){
             filterChain.doFilter(servletRequest, servletResponse);
             return;
         }
+*/
 
         if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
             Authentication authentication = tokenProvider.getAuthentication(jwt);
